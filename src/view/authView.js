@@ -6,7 +6,6 @@ const crypt = require("../util/cryptPassword");
 
 router.post("/login", (req, res) => {
   const user = req.body;
-
   User.findOne(
     { name: user.username, password: crypt.encrypt(user.password) },
     (err, data) => {

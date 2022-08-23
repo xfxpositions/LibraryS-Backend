@@ -6,6 +6,7 @@ const { verifyToken } = require("../util/tokenManager.js");
 const additionalRoutes = ["/login"];
 
 router.use("*", (req, res, next) => {
+  console.log(req.headers);
   if (additionalRoutes.includes(req.baseUrl)) {
     next();
   } else {
