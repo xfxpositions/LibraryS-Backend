@@ -11,6 +11,8 @@ const tokenManager = require("./middleware/tokenFilter.js");
 const homeView = require("./view/homeView.js");
 const authView = require("./view/authView.js");
 const bookView = require("./view/bookView.js");
+const uploadView = require("./view/uploadView.js");
+
 const port = process.env.PORT || 8080;
 
 app.use(
@@ -22,6 +24,7 @@ app.use(tokenManager);
 app.use(homeView);
 app.use(authView);
 app.use(bookView);
+app.use(uploadView);
 
 const connectionUri = process.env.MONGODB_URI;
 

@@ -4,11 +4,9 @@ require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
 
 const tokenSecret = process.env.TOKENSECRET;
 
-console.log(tokenSecret)
-
 const createToken = (payload) => {
   const token = jwt.sign(payload, tokenSecret, {
-    expiresIn: "1h",
+    expiresIn: "30d",
     issuer: "LibraryS system",
   });
   return token;

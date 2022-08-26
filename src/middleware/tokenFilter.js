@@ -3,11 +3,11 @@ const router = express.Router();
 
 const { verifyToken } = require("../util/tokenManager.js");
 
-const additionalRoutes = ["/login"];
+const additionalRoutes = ["/login", "/upload"];
 
 router.use("*", (req, res, next) => {
-  console.log(req.headers);
   if (additionalRoutes.includes(req.baseUrl)) {
+    console.log("additional routes");
     next();
   } else {
     const token = req.headers.authorization?.substring(7);
